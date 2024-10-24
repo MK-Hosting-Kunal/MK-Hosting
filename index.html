@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MK Hosting | Pricing Plans</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+
+.navbar {
+        background-color: #f8f8f8;
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 60px;
+        position: relative;
+    }
+
+    .brand {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #333;
+    }
+
+    .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 40px;
+    }
+
+    .nav-links a {
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+        padding: 10px 15px;
+        position: relative;
+    }
+
+    .nav-links a::after {
+        content: '';
+        position: absolute;
+        bottom: -3px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: #333;
+        transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+        width: 100%;
+    }
+
+    .login {
+        padding: 10px 20px;
+        border-radius: 25px;
+        border: 1px solid #333;
+    }
+
+    .login:hover {
+        background-color: #333;
+        color: #fff;
+    }
+
+    /* Burger menu styling */
+    .burger {
+        display: none;
+        cursor: pointer;
+        font-size: 24px;
+        color: #333;
+        padding: 10px;
+    }
+
+    /* Side nav */
+    .side-nav {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        top: 0;
+        right: 0;
+        background-color: #f8f8f8;
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 60px;
+    }
+
+    .side-nav a {
+        margin-left: 5%;
+        margin-right: 5%;
+        padding: 10px 15px;
+        text-decoration: none;
+        font-size: 18px;
+        color: #333;
+        display: block;
+        transition: 0.3s;
+    }
+
+
+
+    .close-btn {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 36px;
+        color: #333;
+        cursor: pointer;
+        display: none; /* Hidden by default */
+    }
+
+    /* Media query for burger menu */
+    @media (max-width: 950px) {
+        .nav-links {
+            display: none;
+        }
+
+        .burger {
+            display: block;
+        }
+    }
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 15px 20px;
+            text-align: center;
+        }
+
+        nav {
+            margin: 10px 0;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .pricing-table {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 60px; /* Increased gap for better spacing */
+            margin: 40px auto;
+            max-width: 1200px;
+            flex-wrap: nowrap; /* Ensures all plans stay in one line */
+        }
+
+        .plan {
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            text-align: left; /* Align text to the left */
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            flex: 1 1 300px; /* Increased width for responsiveness */
+            max-width: 300px; /* Ensure all plans are of equal width */
+        }
+
+        .plan:hover {
+            transform: translateY(-5px);
+        }
+
+        .badge {
+            position: absolute;
+            top: 20px;
+            right: -20px;
+            background-color: #a86cfd; /* Purple color for the badge */
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transform: rotate(45deg);
+            z-index: 1;
+        }
+
+        .plan-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 20px 0; /* Margin for title */
+            padding: 10px 0; /* Padding for title */
+        }
+
+        .plan-description {
+            font-size: 1rem;
+            margin: 20px 0; /* Increased margin for better spacing */
+            line-height: 1.5; /* Increased line height for better readability */
+            color: #777;
+            padding: 10px 0; /* Padding for description */
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 1rem;
+            padding: 10px 0; /* Padding for original price */
+        }
+
+        .discount {
+            font-weight: bold;
+            color: #FF5733; /* Red color for discount */
+            font-size: 1rem;
+            padding: 10px 0; /* Padding for discount */
+        }
+
+        .price {
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 10px 0; /* Margin for price */
+            padding: 10px 0; /* Padding for price */
+        }
+
+        .billing-cycle {
+            font-size: 1rem;
+            color: #999;
+            margin: 20px 0; /* Increased margin for better spacing */
+            padding: 10px 0; /* Padding for billing cycle */
+        }
+
+        .choose-plan {
+            background-color: #a86cfd; /* Purple button */
+            color: white;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+            margin-top: 20px; /* Margin for button */
+            display: inline-block; /* Ensure button respects the left alignment */
+        }
+
+        .choose-plan:hover {
+            background-color: #9b5de0; /* Slightly darker purple */
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+
+        button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+}
+
+.popup-content {
+  background-color: #fff;
+  margin: 15% auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: 30%;
+  position: relative;
+  text-align: center;
+}
+
+.popup-content h2 {
+  margin-bottom: 20px;
+}
+
+.popup-content input {
+  width: 90%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.popup-content button {
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+    </style>
+</head>
+<body>
+<div class="header">
+
+
+<nav class="navbar">
+    <div class="brand">MK Hosting</div>
+    <div class="burger" id="burgerIcon" onclick="openNav()">&#9776;</div> <!-- Burger Icon -->
+
+    <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/About">About Us</a></li>
+        <li><a href="#">Blogs</a></li>
+        <li><a href="#">Shop</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#" class="login">Login</a></li>
+    </ul>
+</nav>
+
+<!-- Side navigation -->
+<div id="mySidenav" class="side-nav">
+    <span class="close-btn" id="closeBtn" onclick="closeNav()">&times;</span> <!-- Close Icon -->
+    <br><br>
+    <a href="/">Home</a>
+    <a href="/About">About Us</a>
+    <a href="#">Blogs</a>
+    <a href="#">Shop</a>
+    <a href="#">Contact</a>
+    <a href="#" class="login">Login</a>
+</div>
+
+  <div class="title-section">
+    <h1 style=" font-size: 4rem; /* Large heading */
+  color: white;
+  margin-bottom: 20px;">MK Hosting</h1>
+    <p style="font-size: 1.25rem;
+  color: white;">We provide the best solutions for hosting and building your website.</p>
+    <div class="text-with-link"> <!-- Added container for buttons --> <br><br><br>
+      <a href="#plans" class="btn">Shop Now</a>
+      <a href="#" class="btn-sec" id="loginBtn">Know More</a> <!-- New button for "Know More" -->
+      <br><br><br><p style="font-size: 1.25rem;
+  color: white;">⭐⭐⭐⭐⭐</p>
+      <div id="loginPopup" class="popup">
+  <div class="popup-content">
+    <span class="close">&times;</span>
+    <h2>Login</h2>
+    <form>
+      <input type="email" placeholder="Email" required>
+      <input type="password" placeholder="Password" required>
+      <button type="submit">Login</button>
+    </form>
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+<h1 style="text-align: center; margin-top: 15%; margin-bottom: 5%; font-size: 62px; color: #333;" id="plans">Web Hosting</h1>
+<h1 style="text-align: center; color: #474747;
+margin-bottom: 10%;">Pick Your Perfect Plan With Our 7-Days Refund Policy.</h1>
+    <div class="pricing-table">
+        <div class="plan" >
+            <div class="plan-title">Single</div>
+            <div class="plan-description">Ideal for personal projects and small websites.</div>
+            <div class="original-price">₹360.00</div>
+            <div class="discount">SAVE 80%</div>
+            <div class="price">₹69.00/mo</div>
+            <button class="choose-plan">Choose Plan</button>
+        </div>
+        <div class="plan">
+            <span class="badge" id="pre">Most Popular</span>
+            <div class="plan-title">Premium</div>
+            <div class="plan-description">Everything you need to create your website.</div>
+            <div class="original-price">₹599.00</div>
+            <div class="discount">SAVE 75%</div>
+            <div class="price">₹149.00/mo</div>
+            <div class="billing-cycle">+2 months free</div>
+            <button class="choose-plan">Choose Plan</button>
+        </div>
+        <div class="plan">
+            <div class="plan-title">Business</div>
+            <div class="plan-description">Level up with more power and enhanced features.</div>
+            <div class="original-price">₹699.00</div>
+            <div class="discount">SAVE 64%</div>
+            <div class="price">₹249.00/mo</div>
+            <button class="choose-plan">Choose Plan</button>
+        </div>
+        <div class="plan">
+            <div class="plan-title">Cloud Startup</div>
+            <div class="plan-description">Enjoy optimised performance & guaranteed resources.</div>
+            <div class="original-price">₹1,699.00</div>
+            <div class="discount">SAVE 58%</div>
+            <div class="price">₹699.00/mo</div>
+            <button class="choose-plan">Choose Plan</button>
+        </div>
+    </div>
+
+    <script>
+    const loginBtn = document.getElementById("loginBtn");
+const popup = document.getElementById("loginPopup");
+const closeBtn = document.querySelector(".close");
+
+loginBtn.addEventListener("click", () => {
+  popup.style.display = "block";
+});
+
+closeBtn.addEventListener("click", () => {
+  popup.style.display = "none";
+});
+
+window.addEventListener("click", (e) => {
+  if (e.target === popup) {
+    popup.style.display = "none";
+  }
+});
+
+</script>
+
+<script>
+    // Function to open the side navigation
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "250px"; // Open the side nav
+        document.getElementById("burgerIcon").style.display = "none"; // Hide the burger icon
+        document.getElementById("closeBtn").style.display = "block"; // Show the close icon
+    }
+
+    // Function to close the side navigation
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0"; // Close the side nav
+        document.getElementById("burgerIcon").style.display = "block"; // Show the burger icon
+        document.getElementById("closeBtn").style.display = "none"; // Hide the close icon
+    }
+</script>
+</body>
+</html>

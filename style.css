@@ -1,0 +1,53 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.header{
+    background: url(assests/pexels-designecologist-1779487.jpg);
+    height: 85vh;
+    width: 100%;
+    background-position: top;
+    background-size: cover;
+    
+}
+
+
+
+
+.title-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align items to the top */
+    align-items: flex-start; /* Align content to the left */
+    text-align: left; /* Align text to the left */
+    margin-top: 160px; /* Reduced margin to move it higher */
+    padding-left: 80px; /* Add some padding from the left */
+}
+
+
+
+.btn{
+    padding: 18px 28px;
+    color: #fff;
+    border-radius: 25px;
+    border: 2px solid #fff;
+    margin-top: 20px;
+    text-decoration: none;
+    transition: 0.6s;
+    font-weight: 600;
+}
+.btn-sec{
+    padding: 18px 28px;
+    color: #fff;
+    margin-top: 20px;
+    text-decoration: none;
+}
+
+.btn:hover{
+    background-color: #fff;
+    color: #333;
+    font-weight: 600;
+}
+

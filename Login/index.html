@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Modern Login Page | AsmrProg</title>
+    <style>
+       .navbar {
+        background-color: #f8f8f8;
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 60px;
+        position: relative;
+    }
+
+    .brand {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #333;
+    }
+
+    .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 40px;
+    }
+
+    .nav-links a {
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+        padding: 10px 15px;
+        position: relative;
+    }
+
+    .nav-links a::after {
+        content: '';
+        position: absolute;
+        bottom: -3px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: #333;
+        transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+        width: 100%;
+    }
+
+    .login {
+        padding: 10px 20px;
+        border-radius: 25px;
+        border: 1px solid #333;
+    }
+
+    .login:hover {
+        background-color: #333;
+        color: #fff;
+    }
+
+    /* Burger menu styling */
+    .burger {
+        display: none;
+        cursor: pointer;
+        font-size: 24px;
+        color: #333;
+        padding: 10px;
+    }
+
+    /* Side nav */
+    .side-nav {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        top: 0;
+        right: 0;
+        background-color: #f8f8f8;
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 60px;
+    }
+
+    .side-nav a {
+        margin-left: 5%;
+        margin-right: 5%;
+        padding: 10px 15px;
+        text-decoration: none;
+        font-size: 18px;
+        color: #333;
+        display: block;
+        transition: 0.3s;
+    }
+
+
+
+    .close-btn {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 36px;
+        color: #333;
+        cursor: pointer;
+        display: none; /* Hidden by default */
+    }
+
+    /* Media query for burger menu */
+    @media (max-width: 950px) {
+        .nav-links {
+            display: none;
+        }
+
+        .burger {
+            display: block;
+        }
+    }
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 15px 20px;
+            text-align: center;
+        }
+
+        nav {
+            margin: 10px 0;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="brand">MK Hosting</div>
+        <div class="burger" id="burgerIcon" onclick="openNav()">&#9776;</div> <!-- Burger Icon -->
+    
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/About/">About Us</a></li>
+            <li><a href="#">Blogs</a></li>
+            <li><a href="#">Shop</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#" class="login">Login</a></li>
+        </ul>
+    </nav>
+    
+    <!-- Side navigation -->
+    <div id="mySidenav" class="side-nav">
+        <span class="close-btn" id="closeBtn" onclick="closeNav()">&times;</span> <!-- Close Icon -->
+        <br><br>
+        <a href="/">Home</a>
+        <a href="/About/">About Us</a>
+        <a href="#">Blogs</a>
+        <a href="#">Shop</a>
+        <a href="#">Contact</a>
+        <a href="#" class="login">Login</a>
+    </div>
+    <div class="body">
+    <div class="container" id="container">
+        <div class="form-container sign-up">
+            <form>
+                <h1>Create Account</h1>
+                <div class="social-icons">
+                    <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+                <span>or use your email for registeration</span>
+                <input type="text" placeholder="Name">
+                <input type="text" placeholder="Username">
+                <input type="email" placeholder="Email">
+                <input type="password" placeholder="Password">
+                <button>Sign Up</button>
+            </form>
+        </div>
+        <div class="form-container sign-in">
+            <form>
+                <h1>Sign In</h1>
+                <div class="social-icons">
+                    <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+                <span>or use your email password</span>
+                <input type="email" placeholder="Email">
+                <input type="password" placeholder="Password">
+                <a href="#">Forget Your Password?</a>
+                <button>Sign In</button>
+            </form>
+        </div>
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h1>Welcome Back!</h1>
+                    <p>Enter your personal details to use all of site features</p>
+                    <button class="hidden" id="login">Sign In</button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h1>Hello, Friend!</h1>
+                    <p>Register with your personal details to use all of site features</p>
+                    <button class="hidden" id="register">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <script src="script.js"></script>
+    <script>
+        // Function to open the side navigation
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px"; // Open the side nav
+            document.getElementById("burgerIcon").style.display = "none"; // Hide the burger icon
+            document.getElementById("closeBtn").style.display = "block"; // Show the close icon
+        }
+    
+        // Function to close the side navigation
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0"; // Close the side nav
+            document.getElementById("burgerIcon").style.display = "block"; // Show the burger icon
+            document.getElementById("closeBtn").style.display = "none"; // Hide the close icon
+        }
+    </script>
+</body>
+
+</html>
